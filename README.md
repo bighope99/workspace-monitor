@@ -32,6 +32,7 @@ Ctrl+C で停止。
 | `WORKSPACE_MONITOR_INTERVAL` | 更新間隔（秒） | `180` |
 | `WORKSPACE_MONITOR_OUTPUT` | 出力ファイルパス | (コード内のパス) |
 | `WORKSPACE_MONITOR_CLAUDE_DIR` | .claude ディレクトリ | `~/.claude` |
+| `WORKSPACE_MONITOR_MAX_CHARS` | プロンプト最大文字数 | `300` |
 
 ## 設定ファイル
 

@@ -34,6 +34,7 @@ OUTPUT_FILE = Path(os.environ.get('WORKSPACE_MONITOR_OUTPUT', r"C:\Users\nakamur
 MAX_PROMPTS_PER_SESSION = 3
 MAX_SESSIONS_PER_PROJECT = 3
 POLL_INTERVAL = int(os.environ.get('WORKSPACE_MONITOR_INTERVAL', '180'))
+MAX_PROMPT_CHARS = int(os.environ.get('WORKSPACE_MONITOR_MAX_CHARS', '300'))
 
 # ログ設定
 logging.basicConfig(
@@ -154,6 +155,10 @@ def parse_user_message(line: str) -> Optional[str]:
 
     # 改行を空白に置換して1行にする
     content = ' '.join(content.split())
+
+    # 文字数制限
+    if len(content) > MAX_PROMPT_CHARS:
+        content = content[:MAX_PROMPT_CHARS] + '...'
 
     return content
 
